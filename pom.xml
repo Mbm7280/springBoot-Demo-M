@@ -10,6 +10,9 @@
     <modules>
         <module>srping-boot-demo-actuator</module>
         <module>spring-boot-demo-admin</module>
+        <module>spring-boot-demo-task</module>
+        <module>spring-boot-demo-task-quartz</module>
+        <module>spring-boot-demo-task-xxl-job</module>
     </modules>
     <packaging>pom</packaging>
 
