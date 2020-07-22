@@ -13,6 +13,7 @@
         <module>spring-boot-demo-task</module>
         <module>spring-boot-demo-task-quartz</module>
         <module>spring-boot-demo-task-xxl-job</module>
+        <module>spring-boot-demo-mongodb</module>
     </modules>
     <packaging>pom</packaging>
 

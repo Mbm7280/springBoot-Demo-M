@@ -32,7 +32,8 @@ public class ManualOperateController {
         return execute.body();
     }
 
-    @GetMapping
+    @GetMapping("/pageList")
+
     public String xxlJobList(Integer page,Integer size){
         Map<String,Object> jobInfo = Maps.newHashMap();
         jobInfo.put("start",page != null ? page : 0);
