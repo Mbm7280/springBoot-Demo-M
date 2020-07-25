@@ -15,9 +15,9 @@ public class AppRun {
 
     }
 
-    @Bean
-    public Snowflake snowflake() {
-        return IdUtil.createSnowflake(1, 1);
-    }
+//    @Bean
+//    public Snowflake snowflake() {
+//        return IdUtil.createSnowflake(1, 1);
+//    }
 
 }

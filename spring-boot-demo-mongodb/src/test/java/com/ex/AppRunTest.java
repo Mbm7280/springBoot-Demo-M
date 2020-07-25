@@ -9,6 +9,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class AppRunTest {
 
+    /**
+     * 执行上下文加载
+     */
     @Test
     public void contextLoader(){}
 
