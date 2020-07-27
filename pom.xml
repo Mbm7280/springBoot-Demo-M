@@ -14,6 +14,7 @@
         <module>spring-boot-demo-task-quartz</module>
         <module>spring-boot-demo-task-xxl-job</module>
         <module>spring-boot-demo-mongodb</module>
+        <module>spring-boot-demo-rabbitmq</module>
     </modules>
     <packaging>pom</packaging>
 
