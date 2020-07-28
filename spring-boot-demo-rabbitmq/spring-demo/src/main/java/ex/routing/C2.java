@@ -1,4 +1,4 @@
-package ex.work;
+package ex.routing;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -9,11 +9,12 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- * 第一个消息消费者
+ * 消息的消费者2
  */
-public class C1 {
+public class C2 {
 
-    private final static String QUEUE_NAME = "test_queue_work";
+    private final static String QUEUE_NAME = "test_queue_routing_2";
+    private final static String EXCHANGE_NAME = "test_exchange_routing";
 
     public static void main(String[] args) throws IOException, TimeoutException, InterruptedException {
 
@@ -21,18 +22,22 @@ public class C1 {
         Channel channel = conn.createChannel();
         channel.queueDeclare(QUEUE_NAME,false,false,false,null);
 
+        channel.queueBind(QUEUE_NAME,EXCHANGE_NAME,"update");
+        channel.queueBind(QUEUE_NAME,EXCHANGE_NAME,"insert");
+
         QueueingConsumer consumer = new QueueingConsumer(channel);
-        // autoAck      不自动应答
         channel.basicConsume(QUEUE_NAME,false,consumer);
 
-        while(true){
+        while (true){
             QueueingConsumer.Delivery delivery = consumer.nextDelivery();
             String message = new String(delivery.getBody());
-            System.out.println("[x] Received_2 ' " + message + " ' ");
+            System.out.println("[前台系统] ' " + message + " ' ");
+
+            // 线程休息
             Thread.sleep(10);
-            // 手动应答
             channel.basicAck(delivery.getEnvelope().getDeliveryTag(),false);
         }
+
 
     }
 
